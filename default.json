@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared default Renovate policy for WISVCH repositories.",
+  "extends": [
+    "config:recommended",
+    ":automergeStableNonMajor",
+    ":configMigration",
+    ":rebaseStalePrs"
+  ]
+}
