@@ -9,6 +9,9 @@
   "configMigration": true,
   "rebaseWhen": "behind-base-branch",
 
+  // Make dependency-update PRs easy to find across every enrolled repository.
+  "labels": ["dependencies"],
+
   // Merge normal eligible updates only overnight in local time. Platform automerge
   // must be off, otherwise GitHub can merge a PR outside Renovate's schedule.
   "timezone": "Europe/Amsterdam",
