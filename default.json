@@ -1,9 +1,22 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Shared default Renovate policy for WISVCH repositories.",
-  "extends": [
-    "config:recommended"
-  ],
+
+  // Keep Renovate's maintained baseline while making our deviations explicit below.
+  "extends": ["config:recommended"],
+
+  // Apply Renovate's configuration-migration suggestions and rebase stale PRs.
+  "configMigration": true,
+  "rebaseWhen": "behind-base-branch",
+
+  // Merge normal eligible updates only overnight in local time. Platform automerge
+  // must be off, otherwise GitHub can merge a PR outside Renovate's schedule.
+  "timezone": "Europe/Amsterdam",
+  "platformAutomerge": false,
+  "automergeSchedule": ["* 2-5 * * *"],
+
+  // Inline equivalent of :automergeStableNonMajor: only stable (non-0.x)
+  // dependency minor and patch updates may be merged automatically.
   "packageRules": [
     {
       "automerge": true,
@@ -11,11 +24,9 @@
       "matchUpdateTypes": ["minor", "patch"]
     }
   ],
-  "configMigration": true,
-  "rebaseWhen": "behind-base-branch",
-  "timezone": "Europe/Amsterdam",
-  "platformAutomerge": false,
-  "automergeSchedule": ["* 2-5 * * *"],
+
+  // GitHub Dependabot alerts bypass normal schedules and are automerged as soon
+  // as the hourly self-hosted Renovate job next runs and required checks pass.
   "vulnerabilityAlerts": {
     "automerge": true,
     "automergeSchedule": ["at any time"]
