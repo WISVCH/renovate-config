@@ -2,9 +2,22 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "Shared default Renovate policy for WISVCH repositories.",
   "extends": [
-    "config:recommended",
-    ":automergeStableNonMajor",
-    ":configMigration",
-    ":rebaseStalePrs"
-  ]
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "automerge": true,
+      "matchCurrentVersion": "!/^0/",
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ],
+  "configMigration": true,
+  "rebaseWhen": "behind-base-branch",
+  "timezone": "Europe/Amsterdam",
+  "platformAutomerge": false,
+  "automergeSchedule": ["* 2-5 * * *"],
+  "vulnerabilityAlerts": {
+    "automerge": true,
+    "automergeSchedule": ["at any time"]
+  }
 }
