@@ -25,6 +25,10 @@
       "automerge": true,
       "matchCurrentVersion": "!/^0/",
       "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchManagers": ["nix"],
+      "automerge": false
     }
   ],
 
@@ -33,5 +37,11 @@
   "vulnerabilityAlerts": {
     "automerge": true,
     "automergeSchedule": ["at any time"]
+  },
+
+  // https://docs.renovatebot.com/modules/manager/nix/
+  "nix": {
+    "enabled": true
   }
+  
 }
