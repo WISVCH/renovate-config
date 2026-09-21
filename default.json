@@ -33,5 +33,11 @@
   "vulnerabilityAlerts": {
     "automerge": true,
     "automergeSchedule": ["at any time"]
+  },
+
+  // https://docs.renovatebot.com/modules/manager/nix/
+  "nix": {
+    "enabled": true
   }
+  
 }
