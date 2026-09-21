@@ -27,8 +27,8 @@
       "matchUpdateTypes": ["minor", "patch"]
     },
     {
-    "matchManagers": ["nix"],
-    "automerge": false
+      "matchManagers": ["nix"],
+      "automerge": false
     }
   ],
 
