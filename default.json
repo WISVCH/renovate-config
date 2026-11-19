@@ -3,7 +3,7 @@
   "description": "Shared default Renovate policy for WISVCH repositories.",
 
   // Keep Renovate's maintained baseline while making our deviations explicit below.
-  "extends": ["config:recommended"],
+  "extends": ["config:recommended", "docker:pinDigests"],
 
   // Apply Renovate's configuration-migration suggestions and rebase stale PRs.
   "configMigration": true,
@@ -23,8 +23,8 @@
   "packageRules": [
     {
       "automerge": true,
-      "matchCurrentVersion": "!/^0/",
-      "matchUpdateTypes": ["minor", "patch"]
+      "matchCurrentVersion": "!/^v?0/",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
     }
   ],
 
